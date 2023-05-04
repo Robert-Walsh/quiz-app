@@ -1,7 +1,9 @@
+import QuizManager from "./pages/QuizManager"
+
 function App() {
     return (
         <div>
-            Hello World
+            <QuizManager/>
         </div>
     )
 }
