@@ -18,10 +18,10 @@ function QuizManager() {
     }
 
     const handleUpdateScore = async (answeredCorrectly) => {
-
         if(answeredCorrectly){
             setCurrentScore(currentScore + 1)
         }
+        await pause(1000)
         setTotalAnsweredQuestions(totalAnsweredQuestions + 1)
 
         await pause(1000)
@@ -62,29 +62,30 @@ function QuizManager() {
     const isGameOver = totalAnsweredQuestions === TOTAL_QUIZ_QUESTIONS
 
     const gameInProgressContent = (
-        <div>
-            <h3>Current Score: {currentScore}/10</h3>
-            <div>
+        <div className='flex flex-col justify-center mx-4 my-4'>
+            <h3 className="mb-6 flex flex-row">Current Score: <div className='ml-2 font-bold'>{currentScore}/10</div></h3>
+            <div className=''>
                 {content}
             </div>
         </div>
     )
 
     const gameOverContent = (
-        <div>
+        <div className='flex flex-col items-center justify-center mt-16'>
             <h3>
                 The game is over! You scored {currentScore} out of 10! 
             </h3>
-            <Button primary onClick={handlePlayAgain}>
+            <Button primary onClick={handlePlayAgain} className='mr-2 mb-12 w-32 h-16 rounded-md shadow-xl drop-shadow-lg mt-4'>
                 Play Again? 
             </Button>
-            
         </div>
     )
 
     return (
-        <div>
-            {isGameOver ? gameOverContent : gameInProgressContent}
+        <div className="bg-stone-100 border-solid border-2 border-slate-600 rounded-lg shadow-2xl h-auto w-96 relative">
+            <div>
+                {isGameOver ? gameOverContent : gameInProgressContent}
+            </div>
         </div>
     )
 }
