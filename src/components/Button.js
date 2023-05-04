@@ -16,7 +16,7 @@ function Button({
 }) {
   const classes = className(
     rest.className,
-    'flex items-center px-3 py-1.5 border h-8',
+    'flex items-center px-3 py-1.5 border h-8 hover:bg-yellow-400 hover:border-yellow-400',
     {
       'opacity-80': loading,
       'border-blue-500 bg-blue-500 text-white': primary,
